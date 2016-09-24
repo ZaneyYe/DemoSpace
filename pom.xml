@@ -18,7 +18,8 @@
 		<maven.dependency.plugin.version>2.9</maven.dependency.plugin.version>
 		<maven.resources.plugin.version>2.7</maven.resources.plugin.version>
 		<maven.war.plugin.version>2.5</maven.war.plugin.version>
-		<javac.target.version>1.8</javac.target.version>
+		<javac.target.version>1.7</javac.target.version>
+		<velocity.version></velocity.version>
 	</properties>
 
 	<dependencies>
@@ -63,7 +64,11 @@
 			<artifactId>spring-web</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 		<!-- log -->
 		<dependency>
 			<groupId>commons-logging</groupId>
@@ -86,6 +91,18 @@
 			<version>2.2</version>
 		</dependency>
 
+		<!-- velocity -->
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity-tools</artifactId>
+			<version>2.0</version>
+		</dependency>
+
 		<!-- common-util -->
 		<dependency>
 			<groupId>commons-beanutils</groupId>
@@ -93,10 +110,17 @@
 			<version>1.9.2</version>
 		</dependency>
 
+		<!-- jackson -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.8.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
-		<finalName>DemoSpace</finalName>
+		<finalName>ZaneySpace</finalName>
 		<sourceDirectory>${basedir}/src/main/java</sourceDirectory>
 		<resources>
 			<resource>
