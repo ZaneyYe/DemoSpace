@@ -17,5 +17,8 @@ public class IndexController {
 		return "/index";
 	}
 
-
+	@RequestMapping("/msgboard")
+	public String toMsgBoard() {
+		return "/board";
+	}
 }

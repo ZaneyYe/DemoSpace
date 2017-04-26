@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact me</title>
+    <link rel="stylesheet" href="assets/css/board.css">
+</head>
+<body>
+<h1>留言簿</h1>
+<div class="login-01">
+    <form>
+        <ul>
+            <li class="first">
+                <a href="#" class=" icon user"></a><input type="text" class="text" id="name" placeholder="name"
+                                                          onFocus="this.value = '';"/>
+                <div class="clear"></div>
+            </li>
+            <li class="first">
+                <a href="#" class=" icon email"></a><input type="text" class="text" id="email" placeholder="email"
+                                                           onFocus="this.value = '';"/>
+                <div class="clear"></div>
+            </li>
+            <li class="first">
+                <a href="#" class=" icon phone"></a><input type="text" class="text" id="phone" placeholder="phone"
+                                                           onFocus="this.value = '';"/>
+                <div class="clear"></div>
+            </li>
+            <li class="second">
+                <a href="#" class=" icon msg"></a><textarea id="msg" placeholder="message"></textarea>
+                <div class="clear"></div>
+            </li>
+        </ul>
+        <div align="center">
+            <input type="submit" onClick="submitMsg()" value="Submit">
+        </div>
+        <div class="clear"></div>
+    </form>
+</div>
+    #parse("footer.vm")
+;
+</body>
+#*<script type="text/javascript" src="assets/plugins/jquery-1.11.2.min.js"></script>*#
+<script type="text/javascript" src="assets/js/board.js"></script>
+</html>

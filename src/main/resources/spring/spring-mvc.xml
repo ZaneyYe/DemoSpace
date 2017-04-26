@@ -7,20 +7,17 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-       <context:component-scan base-package="com.zaney.controller"/>
+    <import resource="spring-context.xml"/>
 
-       <mvc:annotation-driven />
-       <mvc:default-servlet-handler/>
+    <context:component-scan base-package="com.zaney.controller"/>
+
+    <mvc:annotation-driven/>
+    <mvc:default-servlet-handler/>
 
 
-        <bean class="org.springframework.web.servlet.view.velocity.VelocityConfigurer" id="velocityConfig">
-            <property name="configLocation" value="classpath:velocity-view.properties"/>
-        </bean>
-
-       <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-            <!--<property name="prefix" value="/WEB-INF/jsp/"/>-->
-            <!--<property name="suffix" value=".jsp"/>-->
-       <!--</bean>-->
+    <bean class="org.springframework.web.servlet.view.velocity.VelocityConfigurer" id="velocityConfig">
+        <property name="configLocation" value="classpath:velocity-view.properties"/>
+    </bean>
 
     <bean class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver" id="viewResolver">
         <property name="prefix" value=""></property>
