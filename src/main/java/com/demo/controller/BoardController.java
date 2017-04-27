@@ -1,8 +1,8 @@
-package com.zaney.controller;
+package com.demo.controller;
 
-import com.zaney.service.BoardService;
-import com.zaney.util.HtmlUtil;
-import com.zaney.vo.BoardMsg;
+import com.demo.service.BoardService;
+import com.demo.util.HtmlUtil;
+import com.demo.vo.BoardMsgVo;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +25,12 @@ public class BoardController {
 	private BoardService boardService;
 
 	@RequestMapping("/saveMsg.do")
-	public void saveBoarddMsg(BoardMsg msg) {
-		LOGGER.info("保存留言板信息： msg :" + msg.getEmail());
+	public void saveBoarddMsg(BoardMsgVo msg) {
+		LOGGER.info("保存留言板信息： msg :" + msg.getName());
 		if (StringUtils.isNotBlank(msg.getMsg())) {
 			msg.setMsg(HtmlUtil.escapeHtml(msg.getMsg()));
 		}
 		boardService.saveBoardMsg(msg);
 	}
+
 }

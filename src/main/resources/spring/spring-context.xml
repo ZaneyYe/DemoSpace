@@ -8,13 +8,13 @@
      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
      http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
 
-       <import resource="spring-mybatis.xml"></import>
+       <import resource="spring-mybatis.xml"/>
 
-       <context:annotation-config />
+       <!--<context:annotation-config />-->
 
-       <task:annotation-driven />
+       <!--<task:annotation-driven />-->
 
-       <context:component-scan base-package="com.zaney.service"/>
+       <context:component-scan base-package="com.demo.service"/>
 
        <!-- 定时器配置
         task:executor/@pool-size：可以指定执行线程池的初始大小、最大大小

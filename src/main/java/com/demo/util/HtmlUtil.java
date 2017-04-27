@@ -1,4 +1,4 @@
-package com.zaney.util;
+package com.demo.util;
 
 import org.apache.commons.lang.StringUtils;
 

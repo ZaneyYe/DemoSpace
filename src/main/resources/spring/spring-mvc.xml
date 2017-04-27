@@ -9,8 +9,7 @@
 
     <import resource="spring-context.xml"/>
 
-    <context:component-scan base-package="com.zaney.controller"/>
-
+    <context:component-scan base-package="com.demo.controller"/>
     <mvc:annotation-driven/>
     <mvc:default-servlet-handler/>
 

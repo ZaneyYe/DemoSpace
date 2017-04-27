@@ -1,10 +1,10 @@
-package com.zaney.vo;
+package com.demo.vo;
 
 /**
  * Created by yzy on 2017/4/26.
  * email: mia5121@163.com
  */
-public class BoardMsg {
+public class BoardMsgVo {
 
 	private String name;
 	private String email;

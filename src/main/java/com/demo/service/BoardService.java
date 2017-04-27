@@ -1,6 +1,6 @@
-package com.zaney.service;
+package com.demo.service;
 
-import com.zaney.vo.BoardMsg;
+import com.demo.vo.BoardMsgVo;
 
 /**
  * Created by yzy on 2017/4/26.
@@ -9,5 +9,5 @@ import com.zaney.vo.BoardMsg;
  */
 public interface BoardService {
 	//保存留言板信息
-	void saveBoardMsg(BoardMsg msg);
+	void saveBoardMsg(BoardMsgVo msg);
 }
