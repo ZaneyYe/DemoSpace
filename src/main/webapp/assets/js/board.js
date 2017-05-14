@@ -1,6 +1,9 @@
 /**
  * Created by yzy on 2017/4/26.
  */
+$(function () {
+
+})
 function validateInputMsg() {
     var name = $("#name").val();
     var email = $("#email").val();
@@ -50,13 +53,31 @@ function submitMsg() {
         phone: phone,
         msg: msg
     }
+    // jQuery.ajax({
+    //     url: "/board/saveMsg.do",
+    //     type: "post",
+    //     dataType: "json",
+    //     data: params,
+    //     success: function (result) {
+    //
+    //         // if(result.code == 1){
+    //         //     alert("谢谢您的留言,请多指教!")
+    //         // }
+    //     }
+    // });
     jQuery.ajax({
         url: "/board/saveMsg.do",
         type: "post",
         dataType: "json",
         data: params,
         success: function (result) {
+            if (result.code == 1) {
+                console.log("成功");
+                alert("感谢您的留言！");
+            } else {
 
+            }
         }
     });
+
 }
