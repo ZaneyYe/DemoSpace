@@ -8,6 +8,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 /**
  * Created by yzy on 2017/4/26.
  * email: mia5121@163.com
@@ -35,6 +37,8 @@ public class BoardServiceImpl implements BoardService {
 		boardMsg.setEmail(msg.getEmail());
 		boardMsg.setPhone(msg.getPhone());
 		boardMsg.setMessage(msg.getMsg());
+		boardMsg.setCreatetime(new Date());
+		boardMsg.setUpdatetime(new Date());
 		boardMsgDao.insertSelective(boardMsg);
 	}
 

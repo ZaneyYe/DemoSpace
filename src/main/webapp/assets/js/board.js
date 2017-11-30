@@ -22,7 +22,7 @@ function validateInputMsg() {
         }
     }
     if (phone.length > 0) {
-        var reg = /^(86)*0*13\d{9}$/;
+        var reg = /^(86)?0?1[345789]\d{9}$/;
         if (!reg.test(phone)) {
             alert("请输入正确的手机号");
             return false;

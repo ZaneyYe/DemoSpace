@@ -90,13 +90,20 @@
 			<artifactId>mybatis-spring</artifactId>
 			<version>${mybatis.spring.version}</version>
 		</dependency>
+
+		<!-- mybatis generator -->
 		<!-- mybatis generator -->
 		<dependency>
 			<groupId>org.mybatis.generator</groupId>
 			<artifactId>mybatis-generator-core</artifactId>
 			<version>1.3.5</version>
-			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.40</version>
+		</dependency>
+
 		<!-- 连接池 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -189,12 +196,19 @@
 				<configuration>
 					<configurationFile>${basedir}/mybatis-generator-config.xml</configurationFile>
 					<jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
-					<jdbcURL>jdbc:mysql://127.0.0.1:3306/myblog</jdbcURL>
+					<jdbcURL>jdbc:mysql://192.168.43.3:3306/jinxin</jdbcURL>
 					<jdbcUserId>root</jdbcUserId>
 					<jdbcPassword>root</jdbcPassword>
 					<verbose>true</verbose>
 					<overwrite>true</overwrite>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>5.1.40</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
