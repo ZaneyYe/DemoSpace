@@ -1,2 +1,2 @@
 #set($basePath = ${rc.contextPath})
-#set($projectCnName = "二手房订单管理")
+#set($projectCnName = "前台系统")
