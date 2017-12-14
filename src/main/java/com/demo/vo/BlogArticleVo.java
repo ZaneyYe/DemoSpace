@@ -3,6 +3,7 @@ package com.demo.vo;
 import com.demo.api.en.ArticleType;
 import com.demo.api.po.BlogArticle;
 import com.demo.util.DateFormatUtil;
+import com.demo.util.EncryptUtil;
 
 /**
  * Created by yezhangyuan on 2017-12-14.
@@ -10,6 +11,10 @@ import com.demo.util.DateFormatUtil;
  * @author yezhangyuan
  */
 public class BlogArticleVo extends BlogArticle {
+
+	public String getEncryptId(){
+		return EncryptUtil.encryptDes(getId().toString());
+	}
 
 	/**
 	 * 返回类型名称
