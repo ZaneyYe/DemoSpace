@@ -26,6 +26,24 @@
 		<jsp.api.version>2.3.1</jsp.api.version>
 	</properties>
 
+	<profiles>
+		<profile>
+			<id>home</id>
+			<properties>
+				<env>home</env>
+				<jdbc.url>jdbc:mysql://127.0.0.1:3306/jinxin</jdbc.url>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>company</id>
+			<properties>
+				<env>company</env>
+				<jdbc.url>jdbc:mysql://192.168.43.3:3306/jinxin</jdbc.url>
+			</properties>
+		</profile>
+	</profiles>
+
 	<dependencies>
 		<!-- spring -->
 		<dependency>
@@ -70,15 +88,22 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
 		<!-- mysql -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.version}</version>
 		</dependency>
+
 		<!-- mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -92,7 +117,6 @@
 		</dependency>
 
 		<!-- mybatis generator -->
-		<!-- mybatis generator -->
 		<dependency>
 			<groupId>org.mybatis.generator</groupId>
 			<artifactId>mybatis-generator-core</artifactId>
@@ -104,17 +128,21 @@
 			<version>5.1.40</version>
 		</dependency>
 
+		<!-- test-->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+
 		<!-- 连接池 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 			<version>1.0.20</version>
 		</dependency>
-		<!--<dependency>
-			<groupId>com.jolbox</groupId>
-			<artifactId>bonecp-spring</artifactId>
-			<version>0.8.0.RELEASE</version>
-		</dependency>-->
 
 		<!-- log -->
 		<dependency>
@@ -136,6 +164,13 @@
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
 			<version>2.2</version>
+		</dependency>
+
+		<!-- redis -->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.9.0</version>
 		</dependency>
 
 		<!-- velocity -->
@@ -185,7 +220,26 @@
 		<resources>
 			<resource>
 				<directory>${basedir}/src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>*.xml</include>
+					<include>*.properties</include>
+					<include>mybatis/**/*</include>
+					<include>spring/**/*</include>
+				</includes>
+				<excludes>
+					<exclude>jdbc.properties</exclude>
+				</excludes>
 			</resource>
+
+			<resource>
+				<directory>${basedir}/src/main/resources/config/${env}</directory>
+				<includes>
+					<include>jdbc.properties</include>
+					<include>conf.properties</include>
+				</includes>
+			</resource>
+
 		</resources>
 
 		<plugins>
@@ -196,7 +250,7 @@
 				<configuration>
 					<configurationFile>${basedir}/mybatis-generator-config.xml</configurationFile>
 					<jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
-					<jdbcURL>jdbc:mysql://192.168.43.3:3306/jinxin</jdbcURL>
+					<jdbcURL>${jdbc.url}</jdbcURL>
 					<jdbcUserId>root</jdbcUserId>
 					<jdbcPassword>root</jdbcPassword>
 					<verbose>true</verbose>
