@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:task="http://www.springframework.org/schema/task"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
      http://www.springframework.org/schema/beans/spring-beans.xsd
      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-     http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
        <import resource="spring-mybatis.xml"/>
 
@@ -16,7 +16,24 @@
 
        <context:component-scan base-package="com.demo.config"/>
        <context:component-scan base-package="com.demo.service"/>
+       <context:component-scan base-package="com.demo.util"/>
 
+       <bean id="timeLogInterceptor" class="com.demo.interceptor.TimeLogInterceptor"></bean>
+
+       <aop:config>
+              <aop:pointcut id="control" expression="execution(* com.demo.service..*.*(..))"/>
+              <aop:advisor advice-ref="timeLogInterceptor" pointcut-ref="control"/>
+       </aop:config>
+
+       <!--<bean id="exAspect" class="com.demo.interceptor.ExceptionLogAspect" />-->
+
+       <!-- <aop:config>
+               <aop:aspect ref="exAspect">
+                      &lt;!&ndash; 切入点 &ndash;&gt;
+                      <aop:pointcut id="control2" expression="execution(* com.demo.service..*.*(..))"/>
+                      &lt;!&ndash;<aop:after-throwing method="afterThrowing" throwing="ex" pointcut-ref="control2" />&ndash;&gt;
+               </aop:aspect>
+        </aop:config>-->
        <!-- 定时器配置
         task:executor/@pool-size：可以指定执行线程池的初始大小、最大大小
         task:executor/@queue-capacity：等待执行的任务队列的容量
