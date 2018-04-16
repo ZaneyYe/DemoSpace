@@ -4,6 +4,7 @@ import org.junit.Test;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
+import java.sql.Date;
 
 
 /**
@@ -14,7 +15,12 @@ import javax.crypto.SecretKey;
 public class DemoTest {
 
 	public static void main(String[] args){
-		System.out.println("test");
+
+//		System.out.println("test");
+		java.util.Date date = new java.util.Date();
+		Date sqlDate = new Date(date.getTime());
+		System.out.println(sqlDate);
+
 	}
 
 
