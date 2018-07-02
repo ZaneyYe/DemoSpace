@@ -13,7 +13,8 @@ import com.demo.util.EncryptUtil;
 public class BlogArticleVo extends BlogArticle {
 
 	public String getEncryptId(){
-		return EncryptUtil.encryptDes(getId().toString());
+		//id 用des加密,并防止加号请求时候变空格
+		return EncryptUtil.encryptDes(getId().toString()).replaceAll("\\+","%2B");
 	}
 
 	/**

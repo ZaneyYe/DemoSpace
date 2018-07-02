@@ -45,24 +45,10 @@
                       queue-capacity="500" rejection-policy="CALLER_RUNS" />
        <task:annotation-driven executor="executor" scheduler="scheduler"/>-->
 
-       <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-             p:hostName="${redis.addr}" p:port="${redis.port}" p:password="${redis.password}">
-       </bean>
-
-       <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
-             p:connection-factory-ref="jedisConnectionFactory">
-              <property name="defaultSerializer" ref="stringRedisSerializer"></property>
-              <property name="valueSerializer" ref="valueSerializer"></property>
-       </bean>
-
        <bean id="jedidProxy" class="com.demo.proxy.JedisProxy">
-              <!-- <constructor-arg name="redisAddr" value="${redis.addr}" />
-               <constructor-arg name="port" type="java.lang.Integer" value="${redis.port}" />-->
-              <constructor-arg name="redisTemplate" ref="redisTemplate"></constructor-arg>
+              <constructor-arg name="redisAddr" value="${redis.addr}" />
+              <constructor-arg name="port" type="java.lang.Integer" value="${redis.port}" />
+              <constructor-arg name="password" value="${redis.password}" />
        </bean>
-
-       <bean id="stringRedisSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
-       <bean id="valueSerializer" class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
-
 
 </beans>
