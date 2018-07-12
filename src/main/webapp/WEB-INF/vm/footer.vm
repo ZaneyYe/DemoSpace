@@ -1,9 +1,9 @@
 <!-- ******FOOTER****** -->
 <footer class="footer">
     <div class="container text-center">
-    #*<small class="copyright">More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
-            - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></small>*#
-    </div><!--//container-->
+        <small class="copyright">@2018 山里的码农&nbsp;&nbsp;<a href="http://www.shca.gov.cn/"
+                                                           target="_blank">沪ICP备18025957号</a></small>
+    </div>
 </footer><!--//footer-->
 
 <!-- Javascript -->

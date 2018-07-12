@@ -42,6 +42,14 @@
 				<jdbc.url>jdbc:mysql://192.168.137.3:3306/jinxin</jdbc.url>
 			</properties>
 		</profile>
+
+		<profile>
+			<id>prod</id>
+			<properties>
+				<env>prod</env>
+				<jdbc.url>jdbc:mysql://47.98.179.66:3306/myblog</jdbc.url>
+			</properties>
+		</profile>
 	</profiles>
 
 	<dependencies>
